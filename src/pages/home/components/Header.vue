@@ -34,9 +34,9 @@ export default {
         margin-top: .12rem
         margin-left :.2rem
         padding-left :.2rem
-        background :#fff
+        background #fff
         border-radius: .1rem
-        color :#ccc
+        color #ccc
       .header-right
         width: 1.24rem
         float: left
