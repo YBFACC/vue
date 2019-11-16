@@ -20,17 +20,21 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/varibles.styl'
+
 .header
   display flex
   line-height 0.86rem
   background $bgColor
   color #fff
+
   .header-left
     width 0.64rem
     float left
+
     .back-icon
       text-align center
       font-size 0.4rem
+
   .header-input
     flex 1
     line-height 0.64rem
@@ -41,10 +45,12 @@ export default {
     background #fff
     border-radius 0.1rem
     color #ccc
+
   .header-right
     width 1.24rem
     float left
     text-align center
+
     .arrow-icon
       margin-left -0.4rem
       font-size 0.24rem

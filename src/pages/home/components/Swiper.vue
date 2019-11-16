@@ -1,12 +1,24 @@
 <template>
   <div class="wapper">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <swiper
+      :options="swiperOption"
+      ref="mySwiper"
+    >
       <!-- slides -->
-      <swiper-slide v-for="item in swiperList" :key="item.id">
-        <img class="swiper-wrapper" :src="item.imgUrl" />
+      <swiper-slide
+        v-for="item in swiperList"
+        :key="item.id"
+      >
+        <img
+          class="swiper-wrapper"
+          :src="item.imgUrl"
+        />
       </swiper-slide>
       <!-- Optional controls -->
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div
+        class="swiper-pagination"
+        slot="pagination"
+      ></div>
     </swiper>
   </div>
 </template>
@@ -52,18 +64,12 @@ export default {
 </script>
 
 <style lang="stylus">
-.wrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  padding-bottom: 31.25vw;
+.wrapper
+  overflow hidden
+  width 100%
+  height 0
+  padding-bottom 31.25vw
 
-  .swiper-img {
-    width: 100%;
-  }
-
-  .swiper-pagination-bullet-active {
-    background: #fff;
-  }
-}
+  .swiper-img
+    width 100%
 </style>
