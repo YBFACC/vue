@@ -1,20 +1,10 @@
 <template>
   <div class="icons">
-    <swiper>
-      <swiper-slide
-        v-for="(page, index) of pages"
-        :key="index"
-      >
-        <div
-          class="icon"
-          v-for="item of page"
-          :key="item.id"
-        >
+    <swiper :options="swiperOption">
+      <swiper-slide v-for="page of pages" :key="page.id">
+        <div class="icon" v-for="item of page" :key="item.id">
           <div class="icons-img">
-            <img
-              class="icon-img-content"
-              :src="item.imgUrl"
-            />
+            <img class="icon-img-content" :src="item.imgUrl" />
           </div>
           <p class="icon-desc">{{ item.desc }}</p>
         </div>
@@ -26,70 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: '01',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '02',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '03',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '04',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '05',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '06',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '07',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '08',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        },
-        {
-          id: '09',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/94f7f5bf7b0f4d238dd68d718f102f40.png',
-          desc: '中山陵'
-        }
-      ]
+      swiperOption: {
+        loop: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
