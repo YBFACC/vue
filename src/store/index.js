@@ -6,10 +6,5 @@ Vue.use(VueX)
 
 export default new VueX.Store({
   state: state,
-  mutations: mutations,
-  getters: {
-    doubleCity (state) {
-      return state.city + ' ' + state.city
-    }
-  }
+  mutations: mutations
 })
