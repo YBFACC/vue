@@ -18,11 +18,16 @@
           class="search-item border-bottom"
           v-for="(item, index) in list"
           :key="index"
-        >{{item.name}}</li>
+          @click='handleCityClick(item.name)'
+        >
+          {{ item.name }}
+        </li>
         <li
           class="search-item border-bottom"
           v-show="hasNoData"
-        >没有找到匹配项</li>
+        >
+          没有找到匹配项
+        </li>
       </ul>
     </div>
   </div>
@@ -47,7 +52,12 @@ export default {
       return !this.list.length
     }
   },
-
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
+  },
   watch: {
     keyword: function () {
       if (this.timer) {
@@ -60,9 +70,11 @@ export default {
       this.timer = setTimeout(() => {
         const result = []
         for (let i in this.cities) {
-          this.cities[i].forEach((value) => {
-            if (value.spell.indexOf(this.keyword) > -1 ||
-              value.name.indexOf(this.keyword) > -1) {
+          this.cities[i].forEach(value => {
+            if (
+              value.spell.indexOf(this.keyword) > -1 ||
+              value.name.indexOf(this.keyword) > -1
+            ) {
               result.push(value)
             }
           })
@@ -105,6 +117,7 @@ export default {
   right 0
   bottom 0
   background #eee
+
   .search-item
     line-height 0.62rem
     padding-left 0.2rem
