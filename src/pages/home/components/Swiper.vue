@@ -1,12 +1,25 @@
 <template>
   <div class="wapper">
-    <swiper :options="swiperOption" ref="mySwiper" v-if="showSwiper">
+    <swiper
+      :options="swiperOption"
+      ref="mySwiper"
+      v-if="showSwiper"
+    >
       <!-- slides -->
-      <swiper-slide v-for="item in list" :key="item.id">
-        <img class="swiper-wrapper" :src="item.imgUrl" />
+      <swiper-slide
+        v-for="item in list"
+        :key="item.id"
+      >
+        <img
+          class="swiper-wrapper"
+          :src="item.imgUrl"
+        />
       </swiper-slide>
       <!-- Optional controls -->
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div
+        class="swiper-pagination"
+        slot="pagination"
+      ></div>
     </swiper>
   </div>
 </template>
@@ -33,7 +46,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .wrapper
   overflow hidden
   width 100%
