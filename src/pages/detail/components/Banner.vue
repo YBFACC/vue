@@ -5,16 +5,18 @@
       @click='handleBannerClick'
     >
       <img
-        src="http://img1.qunarzz.com/sight/p0/1603/5e/5ef2033d103ec26a90.water.jpg_600x330_8beb5f35.jpg"
+        :src='bannerImg'
         class="banner-img"
       >
       <div class="banner-info">
-        <div class="banner-title">栖霞山(AAAA景区)</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe60d;</span>39</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe60d;</span>
+          {{this.bannerImgs.length}}
+        </div>
       </div>
     </div>
     <common-gallary
-      :imgs='imgs'
+      :imgs='bannerImgs'
       v-show="showGallary"
       @close='handleGallaryClose'
     ></common-gallary>
@@ -27,6 +29,11 @@ export default {
   name: 'DetailBanner',
   components: {
     CommonGallary
+  },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
   },
   data () {
     return {
